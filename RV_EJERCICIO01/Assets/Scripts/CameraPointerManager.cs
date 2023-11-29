@@ -34,10 +34,14 @@ public class CameraPointerManager : MonoBehaviour
     }
     private Vector3 CalculatePointerPosition(Vector3 p0, Vector3 p1, float t) 
     {
-        float x = p0.x + t + (p1.x - p0.x);
-        float y = p0.y + t + (p1.y - p0.y);
-        float z = p0.z + t + (p1.z - p0.z);
+        float x = p0.x + t * (p1.x - p0.x);
+        float y = p0.y + t * (p1.y - p0.y);
+        float z = p0.z + t * (p1.z - p0.z);
         return new Vector3(x, y, z);
+    }
+    private void Start()
+    {
+        GazeManager.Instance.OnGazeSelection += GazeSelection;
     }
     private void GazeSelection() 
     {
