@@ -38,7 +38,7 @@ public class CameraPointerManager : MonoBehaviour
     {
         pointer.transform.localScale = Vector3.one * 0.1f;
         pointer.transform.parent.transform.localPosition = new Vector3(0, 0, maxDistancePointer);
-        pointer.transform.parent.transform.rotation = transform.rotation;
+        pointer.transform.parent.parent.transform.rotation = transform.rotation;
         GazeManager.Instance.CancelGazeSelection();
     }
     private void PointerOnGaze(Vector3 hitPoint) 
@@ -69,7 +69,7 @@ public class CameraPointerManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance))
         {
-            hitPoint =hit.point;
+            hitPoint = hit.point;
             if (_gazedAtObject != hit.transform.gameObject)
             {
                 // New GameObject.

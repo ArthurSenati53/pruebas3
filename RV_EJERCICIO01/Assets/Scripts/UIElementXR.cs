@@ -43,8 +43,5 @@ public class UIElementXR : MonoBehaviour
         pointer.position = new Vector2(screePos.x, screePos.y);
         return pointer;
     }
-    void Update()
-    {
-        
-    }
 }
+
